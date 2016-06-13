@@ -1,0 +1,106 @@
+============================= test session starts ==============================
+platform linux2 -- Python 2.7.6 -- py-1.4.22 -- pytest-2.6.0
+collected 9 items
+
+test.py ....FFFFF
+
+=================================== FAILURES ===================================
+_______________ test_function_pass[ĄČĘĖĮŠŲŪ()_Ž-ĄČĘ] _______________
+
+string = '\xc4\x84\xc4\x8c\xc4\x98\xc4\x96\xc4\xae\xc5\xa0\xc5\xb2\xc5\xaa()_\xc5\xbd'
+substring = '\xc4\x84\xc4\x8c\xc4\x98'
+
+    @mark.parametrize("string, substring",
+                      [(None, None), ("string", "substring"), ("", "substring"), ("string", ""), ("ĄČĘĖĮŠŲŪ()_Ž", "ĄČĘ")])
+    def test_function_pass(string, substring):
+        """
+        Parametrized test function for find_substring(string, substring) function.
+        This functions must be run with py.test testing framework to work correctly.
+        Function runs find_substring(string, substring) correctly ergo passes the test.
+    
+        :param string: longer string line in which search of the substring will be performed.
+        :param substring: shorter fragment of string which may or may not be in the longer string.
+        :return: None.
+        """
+>       assert find_substring(string, substring) == False
+E       assert True == False
+E        +  where True = find_substring('\xc4\x84\xc4\x8c\xc4\x98\xc4\x96\xc4\xae\xc5\xa0\xc5\xb2\xc5\xaa()_\xc5\xbd', '\xc4\x84\xc4\x8c\xc4\x98')
+
+test.py:23: AssertionError
+________________________ test_function_fail[None-None] _________________________
+
+string = None, substring = None
+
+    @mark.parametrize("string, substring", [(None, None), ("string", "substring"), ("", "substring"), ("string", "")])
+    def test_function_fail(string, substring):
+        """
+        Parametrized test function for find_substring(string, substring) function.
+        This functions must be run with py.test testing framework to work correctly.
+        Function runs find_substring(string, substring) incorrectly ergo fails the test.
+    
+        :param string: longer string line in which search of the substring will be performed.
+        :param substring: shorter fragment of string which may or may not be in the longer string.
+        :return: None.
+        """
+>       assert find_substring(string, substring) == True
+E       assert find_substring(None, None) == True
+
+test.py:37: AssertionError
+_____________________ test_function_fail[string-substring] _____________________
+
+string = 'string', substring = 'substring'
+
+    @mark.parametrize("string, substring", [(None, None), ("string", "substring"), ("", "substring"), ("string", "")])
+    def test_function_fail(string, substring):
+        """
+        Parametrized test function for find_substring(string, substring) function.
+        This functions must be run with py.test testing framework to work correctly.
+        Function runs find_substring(string, substring) incorrectly ergo fails the test.
+    
+        :param string: longer string line in which search of the substring will be performed.
+        :param substring: shorter fragment of string which may or may not be in the longer string.
+        :return: None.
+        """
+>       assert find_substring(string, substring) == True
+E       assert find_substring('string', 'substring') == True
+
+test.py:37: AssertionError
+________________________ test_function_fail[-substring] ________________________
+
+string = '', substring = 'substring'
+
+    @mark.parametrize("string, substring", [(None, None), ("string", "substring"), ("", "substring"), ("string", "")])
+    def test_function_fail(string, substring):
+        """
+        Parametrized test function for find_substring(string, substring) function.
+        This functions must be run with py.test testing framework to work correctly.
+        Function runs find_substring(string, substring) incorrectly ergo fails the test.
+    
+        :param string: longer string line in which search of the substring will be performed.
+        :param substring: shorter fragment of string which may or may not be in the longer string.
+        :return: None.
+        """
+>       assert find_substring(string, substring) == True
+E       assert find_substring('', 'substring') == True
+
+test.py:37: AssertionError
+_________________________ test_function_fail[string-] __________________________
+
+string = 'string', substring = ''
+
+    @mark.parametrize("string, substring", [(None, None), ("string", "substring"), ("", "substring"), ("string", "")])
+    def test_function_fail(string, substring):
+        """
+        Parametrized test function for find_substring(string, substring) function.
+        This functions must be run with py.test testing framework to work correctly.
+        Function runs find_substring(string, substring) incorrectly ergo fails the test.
+    
+        :param string: longer string line in which search of the substring will be performed.
+        :param substring: shorter fragment of string which may or may not be in the longer string.
+        :return: None.
+        """
+>       assert find_substring(string, substring) == True
+E       assert find_substring('string', '') == True
+
+test.py:37: AssertionError
+====================== 5 failed, 4 passed in 0.03 seconds ======================
